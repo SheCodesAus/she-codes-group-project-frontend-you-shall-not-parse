@@ -1,0 +1,13 @@
+.nav {
+    display: flex;
+    justify-content: right;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+#img {
+    width: 70px;
+    height: 70px;
+    border-radius: 80px;
+    padding: 7px;
+}
