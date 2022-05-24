@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateAccountForm.css"
 
+
 function CreateAccountForm()
 {
     const [credentials, setCredentials] = useState({
@@ -149,8 +150,8 @@ const formFields = [
 
 
 return (
+
   <div className="login-background">
-  
     <form>
     <div className="login">
     <h1 className="glowup">Create Account</h1>
