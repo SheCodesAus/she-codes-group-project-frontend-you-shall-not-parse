@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css"
 
+
+
 function LoginForm() {
   // State
   const [credentials, setCredentials] = useState({
@@ -47,9 +49,10 @@ function LoginForm() {
   };
 
   return (
+    <div className="login-background">
     <form>
       <div className="login">
-        <h1>Login</h1>
+        <h1 className="glowup">Login</h1>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -71,6 +74,7 @@ function LoginForm() {
         </button>
       </div>
     </form>
+    </div>
   );
 }
 

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./CreateAccountForm.css"
+
 
 function CreateAccountForm()
 {
@@ -148,6 +150,7 @@ const formFields = [
 
 
 return (
+
   <div className="login">
     <form>
       {formFields.map((field, key) => {

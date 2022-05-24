@@ -5,10 +5,15 @@ function HomePage() {
 
     return (
         <div>
+      
             <a>INSERT WORKSHOPS HERE</a>
+            
+        
         </div>
+
     )
     
 }
 
 export default HomePage;
+
