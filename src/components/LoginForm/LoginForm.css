@@ -4,4 +4,34 @@
     justify-content: center;
     flex-direction: column;
     margin: 10px;
+    
+    
+}
+
+.login-background {
+    /* border: 1px solid red; */
+    background-image:url("https://shecodes.com.au/wp-content/uploads/2021/10/shecodes_cupcake.svg");
+background-repeat: no-repeat;
+padding: 10px;
+margin-left: 50px;
+
+    }
+
+    
+.glowup {
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #8246AF, 0 0 40px #8246AF, 0 0 50px #8246AF, 0 0 60px #8246AF, 0 0 70px #8246AF;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #FFA300, 0 0 40px #FFA300, 0 0 50px #FFA300, 0 0 60px #FFA300, 0 0 70px #FFA300, 0 0 80px #FFA300;
+  }
 }

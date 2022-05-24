@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./CreateAccountForm.css"
 
-
+class MyHeader extends React.Component {}
 function CreateAccountForm()
 {
     const [credentials, setCredentials] = useState({
@@ -47,9 +48,11 @@ function CreateAccountForm()
 
 
 return (
+    <div className="login-background">
     <form>
+      
       <div className="login">
-        <h1>Create Account</h1>
+        <h1 className="glowup">Create Account</h1>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -74,6 +77,7 @@ return (
       
       </div>
     </form>
+    </div>
   );
 }
     
