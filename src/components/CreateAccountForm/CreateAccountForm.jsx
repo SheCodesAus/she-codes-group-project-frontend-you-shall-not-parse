@@ -2,12 +2,23 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateAccountForm.css"
 
-class MyHeader extends React.Component {}
+
 function CreateAccountForm()
 {
     const [credentials, setCredentials] = useState({
+        first_name: "",
+        last_name: "",
         username: "",
+        email: "",
         password: "",
+        password2: "",
+        image: "",
+        current_position: "",
+        bio: "",
+        location: "",
+        contact: "",
+        languages: ""
+
     });
 
     const navigate = useNavigate();
@@ -23,18 +34,33 @@ function CreateAccountForm()
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-      if (credentials.username && credentials.password) {
+      if (credentials.first_name && credentials.last_name && credentials.username && credentials.email && credentials.password && credentials.password2 && credentials.image && credentials.current_position && credentials.bio && credentials.location && credentials.contact && credentials.languages) {
         try {
           const response = await fetch(
-            `${process.env.REACT_APP_API_URL}api-token-auth/`,
+            `${process.env.REACT_APP_API_URL}register/`,
             {
               method: "post",
               headers: {
                 "Content-Type": "application/json",
               },
-              body: JSON.stringify(credentials),
+              body: JSON.stringify({
+                first_name: credentials.first_name,
+                last_name: credentials.last_name,
+                username: credentials.username,
+                email: credentials.email,
+                password: credentials.password,
+                password2: credentials.password2,
+                image: credentials.image,
+                current_position: credentials.current_position,
+                bio: credentials.bio,
+                location: credentials.location,
+                contact: credentials.contact,
+                languages: credentials.languages
+              }),
             }
           );
+
+
           const data = await response.json();
           console.log("data", data);
           window.localStorage.setItem("token", data.token);
@@ -47,38 +73,100 @@ function CreateAccountForm()
     };
 
 
+const formFields = [
+  {
+    id: "first_name",
+    label: "Firstname",
+    placeholder: "Firstname",
+    type: "text",
+  },
+  {
+    id: "last_name",
+    label: "Lastname",
+    placeholder: "Lastname",
+    type: "text",
+  },
+  {
+    id: "username",
+    label: "Username",
+    placeholder: "Enter Username",
+    type: "text",
+  },
+  {
+    id: "email",
+    label: "Email",
+    placeholder: "Email",
+    type: "email",
+  },
+  {
+    id: "password",
+    label: "Password",
+    placeholder: "Enter password",
+    type: "password",
+  },
+  {
+    id: "password2",
+    label: "Confirm Password",
+    placeholder: "Re-enter password",
+    type: "password",
+  },
+  {
+    id: "image",
+    label: "Image",
+    placeholder: "Enter a profile picture",
+    type: "url",
+  },
+  {
+    id: "current_position",
+    label: "Occupation",
+    placeholder: "Occupation",
+    type: "text"
+  },
+  {
+    id: "bio",
+    label: "Bio",
+    placeholder: "Bio",
+    type: "text",
+  },
+  {
+    id: "location",
+    label: "Location",
+    placeholder: "Location",
+    type: "text",
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    placeholder: "Contact",
+    type: "text",
+  },
+  {
+    id: "languages",
+    label: "Languages",
+    placeholder: "Languages",
+    type: "text",
+  }
+]
+
+
 return (
-    <div className="login-background">
+
+  <div className="login">
     <form>
-      
-      <div className="login">
-        <h1 className="glowup">Create Account</h1>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="Enter username"
-          onChange={handleChange}
-        />
-      </div>
-      <div className="login">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" placehodler="User@email.com" onChange={handleChange}/>
-        <button type="submit" onClick={handleSubmit}>
-          Create
-        </button>
-      
+      {formFields.map((field, key) => {
+        return (
+          <div key={`${key}-${field.id}`}>
+            <label htmlFor={field.id}>{field.label}</label>
+            <input type={field.type} id={field.id} placeholder={field.placeholder} onChange={handleChange}/>
+          </div>
+        )
+      })}
+      <div>
+        <button type="submit" onClick={handleSubmit}>Create Account</button>
       </div>
     </form>
-    </div>
-  );
+  </div>
+  )
 }
     
 export default CreateAccountForm;
