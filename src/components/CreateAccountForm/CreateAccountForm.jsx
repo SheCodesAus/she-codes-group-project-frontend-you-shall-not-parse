@@ -151,8 +151,10 @@ const formFields = [
 
 return (
 
-  <div className="login">
+  <div className="login-background">
     <form>
+    <div className="login">
+    <h1 className="glowup">Create Account</h1>
       {formFields.map((field, key) => {
         return (
           <div key={`${key}-${field.id}`}>
@@ -164,9 +166,12 @@ return (
       <div>
         <button type="submit" onClick={handleSubmit}>Create Account</button>
       </div>
+      </div>
     </form>
   </div>
+  
   )
+
 }
     
 export default CreateAccountForm;
