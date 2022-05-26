@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 //styles
 import "./EventCard.css";
 
-function EventCard({ eventData }) {
-
+function EventCard({eventData}) {
+    
     
     return (
     <div className="event-card">
