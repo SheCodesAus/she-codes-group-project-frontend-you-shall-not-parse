@@ -9,12 +9,12 @@ function Nav() {
 
 
         <div className="header">
-        <img className="imag-nav" src={logo} alt="SheCodeslogo" />
+        <Link to="/"><img className="imag-nav" src={logo} alt="SheCodeslogo" /></Link>
 
-        <nav class="nav">
-            <Link to="/">Home Page</Link>
+        <nav className="nav">
+            <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
-            <Link to="/createAccount">Create Account</Link>           
+            <Link to="/createAccount">Become a mentor</Link>           
         </nav>
         </div>
 

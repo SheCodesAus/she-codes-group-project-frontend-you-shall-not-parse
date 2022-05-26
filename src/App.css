@@ -1,0 +1,13 @@
+#event-list {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    column-gap: 30px;
+    row-gap: 10px;
+    justify-content: center;
+    margin: 80px;
+    
+}
+
+h1 {
+    text-align: center;
+}
