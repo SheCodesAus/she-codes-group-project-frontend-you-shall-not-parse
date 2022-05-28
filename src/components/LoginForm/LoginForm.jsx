@@ -42,6 +42,7 @@ function LoginForm() {
         window.localStorage.setItem("token", data.token);
         window.localStorage.setItem("username", credentials.username);
         navigate("/");
+        
       } catch (err) {
         console.log(err);
       }
@@ -72,6 +73,7 @@ function LoginForm() {
         <button type="submit" onClick={handleSubmit}>
           Login
         </button>
+
       </div>
     </form>
     </div>
