@@ -38,9 +38,29 @@ function UserProfile() {
     return (
     <>
     <div>
-        <img src={userData.image}/>
-        <div>
-            <h2>{userData.username}</h2>
+        <img id="user-image" src={userData.image}/>
+            <h1>User Profile of {userData.first_name} {userData.last_name} </h1>
+            <div>  
+            <h4> About </h4>
+            <h3>{userData.bio}</h3>
+
+            <h4> Coding Languages </h4>
+            <h3>{userData.languages}</h3>
+
+            <h4> Location </h4>
+            <h3>{userData.location}</h3>
+
+            <h4> Current Position </h4>
+            <h3>{userData.current_position}</h3>
+
+            <h4> Username </h4>
+            <h3>{userData.username}</h3>
+
+            <h4> Email address </h4>
+            <h3>{userData.email}</h3>
+
+            <h1>Upcoming classes - spot to pull through classes they have coming</h1>
+            
         </div>
     </div>
     </>
