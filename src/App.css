@@ -11,3 +11,20 @@
 h1 {
     text-align: center;
 }
+
+#user-image {
+    width: 40%;
+    height: 40%;
+    float: right;
+    margin: 5%;
+    border-radius: 25px;
+}
+
+h3 {
+    margin: 15px;
+    font-weight: 300;
+}
+
+h4 {
+    margin: 10px;
+}
