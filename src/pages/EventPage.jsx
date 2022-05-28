@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import "./../App.css"
-import "./WorkshopSignupPage"
-// import Nav from "../components/Nav/Nav.jsx"
+import { useParams, Link, useNavigate, useLocation} from "react-router-dom";
+import "./../App.css";
+import "./WorkshopSignupPage";
 
 function EventPage() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState();
+    const location = useLocation();
 
+    useEffect(()=> {
+        const localUsername = window.localStorage.getItem("username")
+        const token = window.localStorage.getItem("token");
+        if(token) {
+            setIsLoggedIn(true);
+            setUsername(localUsername);
+        }
+    }, [location])
+
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
     //State
     const [eventData, setEventData] = useState();
 
@@ -24,9 +39,6 @@ function EventPage() {
                 setEventData(data);
             });
     }, []);
-    
-    
-
 
     
     //Loading state
@@ -46,7 +58,7 @@ function EventPage() {
             <h3 className="location">Location: {eventData.location}</h3>
             <h3 className="finaldate">Sign up closes on {new Date(eventData.signup_closes).toDateString()}</h3>
             
-            {/* {
+            {
                 isLoggedIn ? (
                     <>
                     <Link className="signup" to="/events/id/signup"><button>Sign Up Now!</button></Link>
@@ -54,9 +66,13 @@ function EventPage() {
                 )
                 :
                 (
-                    <Link to="/login"><button>Login to Sign up.</button> </Link>
+                    <>
+                    <Link className="signup" to="/login"><button>Login to Sign up.</button></Link>
+                    <h3 className="signup">Dont have an account?</h3>
+                    <Link className="signup" to="/createaccount"><button>Create Account</button></Link>
+                    </>
                 )
-            } */}
+            } 
 
         </div>
     </div>
