@@ -12,6 +12,7 @@ h1 {
     text-align: center;
 }
 
+
 #user-image {
     width: 40%;
     height: 40%;
@@ -28,3 +29,39 @@ h3 {
 h4 {
     margin: 10px;
 }
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}
+
+.desc {
+    display: flex;
+    justify-content: center;
+}
+
+.location {
+    display: flex;
+    justify-content: center;
+}
+
+.finaldate {
+    display: flex;
+    justify-content: center;
+}
+
+.signup {
+    display: flex;
+    justify-content: center;
+}  
+
+.image {
+    height: 50%;
+}
+
