@@ -47,11 +47,6 @@ function LoginForm() {
         console.log(err);
       }
     }
-
-    function logout () {
-      localStorage.clear();
-      window.location.href = '/';
-    }
   };
 
   return (
