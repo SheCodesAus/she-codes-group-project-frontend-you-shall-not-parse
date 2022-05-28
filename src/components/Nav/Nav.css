@@ -76,3 +76,15 @@ a.nav {
 }
 
    */
+
+
+.logoutbutton {
+    padding: 10px;
+    text-decoration: none;
+    font-family: Raleway,Calibri;
+    font-size: 20px;
+    color: #8246AF;
+    font-weight: bold;
+    background: none;
+    border: none;
+}
