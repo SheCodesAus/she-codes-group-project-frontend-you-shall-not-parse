@@ -22,7 +22,6 @@ function Nav() {
         window.location.reload();
     }
 
-
     return (
         <div className="header">
         <Link to="/"><img className="imag-nav" src={logo} alt="SheCodeslogo" /></Link>
@@ -33,8 +32,8 @@ function Nav() {
             {
                 isLoggedIn ? (
                     <>
-                    <button onClick={handleLogout}>Logout</button>
-                    <h1>{username}</h1>
+                    <button className="logoutbutton" onClick={handleLogout}>Logout</button>
+                    <Link to="/users/:id">{username}</Link>
                     </>
                     )
                 :

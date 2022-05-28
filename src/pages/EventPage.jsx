@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "./../App.css"
 import "./WorkshopSignupPage"
+// import Nav from "../components/Nav/Nav.jsx"
 
 function EventPage() {
 
@@ -44,7 +45,19 @@ function EventPage() {
             <h3 className="desc">{eventData.description}</h3>
             <h3 className="location">Location: {eventData.location}</h3>
             <h3 className="finaldate">Sign up closes on {new Date(eventData.signup_closes).toDateString()}</h3>
-            <Link className="signup" to="/events/id/signup"><button>Sign Up Now!</button></Link>
+            
+            {/* {
+                isLoggedIn ? (
+                    <>
+                    <Link className="signup" to="/events/id/signup"><button>Sign Up Now!</button></Link>
+                    </>
+                )
+                :
+                (
+                    <Link to="/login"><button>Login to Sign up.</button> </Link>
+                )
+            } */}
+
         </div>
     </div>
     
