@@ -12,19 +12,19 @@ function UserProfile() {
 
 
     //Hooks
-    const { id } = useParams();  
+    const { username } = useParams();  
 
 
     //Actions and Helpers
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}users/${username}`)
         .then((results) => {
             return results.json();
         })
         .then((data) => {
             setUserData(data);
         });
-    }, [id]);
+    }, [username]);
 
 
 

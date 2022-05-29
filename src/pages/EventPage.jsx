@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "./../App.css"
-import "./WorkshopSignupPage"
+import SignUpForm from "../components/WorkshopSignup/SignUpForm";
+
 // import Nav from "../components/Nav/Nav.jsx"
 
 function EventPage() {
@@ -57,6 +58,7 @@ function EventPage() {
                     <Link to="/login"><button>Login to Sign up.</button> </Link>
                 )
             } */}
+            <SignUpForm/>
 
         </div>
     </div>

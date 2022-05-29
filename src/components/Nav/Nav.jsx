@@ -8,6 +8,9 @@ function Nav() {
     const [username, setUsername] = useState();
     const location = useLocation();
 
+  
+
+
     useEffect(()=> {
         const localUsername = window.localStorage.getItem("username")
         const token = window.localStorage.getItem("token");
@@ -22,6 +25,10 @@ function Nav() {
         window.location.reload();
     }
 
+
+
+    
+
     return (
         <div className="header">
         <Link to="/"><img className="imag-nav" src={logo} alt="SheCodeslogo" /></Link>
@@ -33,7 +40,7 @@ function Nav() {
                 isLoggedIn ? (
                     <>
                     <button className="logoutbutton" onClick={handleLogout}>Logout</button>
-                    <Link to="/users/:id">{username}</Link>
+                    <Link to={`/users/${username}`}>{username}</Link>
                     </>
                     )
                 :

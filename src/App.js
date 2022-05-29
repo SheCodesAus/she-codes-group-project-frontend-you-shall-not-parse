@@ -11,7 +11,6 @@ import LoginPage from "./pages/LoginPage";
 import CreateAccountPage from "./pages/CreateAccountPage";
 import UserProfile from "./pages/UserProfile";
 import EventPage from "./pages/EventPage";
-import SignUpPage from "./pages/WorkshopSignupPage";
 
 import "./App.css";
 import SignUpForm from "./components/WorkshopSignup/SignUpForm";
@@ -25,9 +24,8 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/createaccount" element={<CreateAccountPage />} />
-            <Route path="/users/:id" element={<UserProfile/>} />
+            <Route path="/users/:username" element={<UserProfile/>} />
             <Route path="/events/:id" element={<EventPage/>} />
-            <Route path="/events/id/signup" element={<SignUpPage/>} />
           </Routes>
       </div>
     </Router>
