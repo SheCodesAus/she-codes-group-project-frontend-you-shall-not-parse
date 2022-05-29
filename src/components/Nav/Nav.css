@@ -26,6 +26,17 @@
     font-weight: bold;
 }
 
+.header .nav a:hover{
+    padding: 10px;
+    text-decoration: none;
+    font-family: Raleway,Calibri;
+    color: rgb(248, 160, 28);
+    text-shadow: 0 0 10px #fff700;
+    font-weight: normal;
+    transition-delay: .3s;
+}
+
+
 
 
 
