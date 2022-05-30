@@ -26,8 +26,7 @@ function UserProfile() {
         });
     }, [id]);
 
-
-
+    
 
     //Loading state
     if (!userData) {
@@ -38,6 +37,9 @@ function UserProfile() {
     return (
     <>
     <div>
+
+        <Link to="/users/:id/edit">Edit profile</Link>
+        <h4></h4>
         <img id="user-image" src={userData.image}/>
             <h1>User Profile of {userData.first_name} {userData.last_name} </h1>
             <div>  
