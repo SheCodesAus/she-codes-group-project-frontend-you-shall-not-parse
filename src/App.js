@@ -29,7 +29,7 @@ function App() {
         <div>
           <Nav2>
             <Routes>
-              <Route path="/events_all" element={<HomePage/>}/>
+              <Route path="/events_all" element={<AllEvents/>}/>
               <Route path="/ourprograms" element={<Programs/>}/>
             </Routes>
           </Nav2>
