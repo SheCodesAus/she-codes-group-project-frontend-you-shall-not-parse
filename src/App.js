@@ -13,8 +13,13 @@ import CreateAccountPage from "./pages/CreateAccountPage";
 import UserProfile from "./pages/UserProfile";
 import EventPage from "./pages/EventPage";
 import SignUpPage from "./pages/WorkshopSignupPage";
+import AllEvents from "./pages/AllEventsPage";
+import Programs from "./pages/ProgramInfoPage";
 
+// styles
 import "./App.css";
+
+// form
 import SignUpForm from "./components/WorkshopSignup/SignUpForm";
 
 function App() {
@@ -23,6 +28,10 @@ function App() {
       <div>
         <div>
           <Nav2>
+            <Routes>
+              <Route path="/events_all" element={<HomePage/>}/>
+              <Route path="/ourprograms" element={<Programs/>}/>
+            </Routes>
           </Nav2>
         </div>
         <div>
@@ -34,6 +43,7 @@ function App() {
               <Route path="/users/:id" element={<UserProfile/>} />
               <Route path="/events/:id" element={<EventPage/>} />
               <Route path="/events/id/signup" element={<SignUpPage/>} />
+              <Route path="/ourprograms" element={<Programs/>}/>
             </Routes>
         </div>
       </div>
