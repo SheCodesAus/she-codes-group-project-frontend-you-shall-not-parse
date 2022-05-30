@@ -11,10 +11,10 @@ import LoginPage from "./pages/LoginPage";
 import CreateAccountPage from "./pages/CreateAccountPage";
 import UserProfile from "./pages/UserProfile";
 import EventPage from "./pages/EventPage";
-import EventModulePage from "./pages/EventModule";
+import EventModulePage from "./pages/EventModulePage";
 
 import "./App.css";
-import SignUpForm from "./components/WorkshopSignup/SignUpForm";
+
 
 function App() {
   return (

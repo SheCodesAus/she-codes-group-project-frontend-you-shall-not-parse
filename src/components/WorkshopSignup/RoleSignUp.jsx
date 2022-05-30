@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import "./../App.css"
+import { Link, useParams } from "react-router-dom"
 
 
+function SignUpRoleForm() {
 
-function EventModulePage() {
-
-    //State
     const [eventModuleRoleList, setEventModuleRoleList] = useState();
 
     //Hooks
@@ -28,33 +25,30 @@ function EventModulePage() {
 
     
 
-
-    
     //Loading state
     if (!eventModuleRoleList) {
         return <h3>Loading event...</h3>;
     }
 
-
     //Normal State
     return (
-    
-    <div>
-            
+
         <div>
-            {eventModuleRoleList.map((event_module_role, key) => 
-            {return (
-            <h4 key={`event_module_role-${event_module_role.id}`} >
-                {event_module_role.event_module_name} : {event_module_role.role}
-            </h4>
-            );
-        })
-        }
-        </div>
-
-    </div>
+            <h2>Please select the role that you would like to sign up for:</h2>    
+            <div>
+                {eventModuleRoleList.map((event_module_role, key) => 
+                {return (
+                <h4 key={`event_module_role-${event_module_role.id}`} >
+                    {event_module_role.event_module_name} : {event_module_role.role}
+                </h4>
+                );
+            })
+            }
+            </div>
     
-    );
+        </div>
+        
+        );
 }
-
-export default EventModulePage;
+    
+export default SignUpRoleForm;

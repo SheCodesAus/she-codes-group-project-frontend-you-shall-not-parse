@@ -8,7 +8,7 @@ function Nav() {
     const [username, setUsername] = useState();
     const location = useLocation();
 
-  
+
 
 
     useEffect(()=> {

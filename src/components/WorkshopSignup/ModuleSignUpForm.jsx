@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom"
 
-function SignUpForm() {
+function SignUpModuleForm() {
 
 
     const [eventModuleList, setEventModuleList] = useState([]);
-    const [eventModuleRoleList, setEventModuleRoleList] = useState();
 
      //Hooks
     const { id } = useParams();
@@ -47,7 +46,9 @@ function SignUpForm() {
     //                 }
     //             }
     //         }
-//          ORIGINAL
+
+
+
     //Actions and Helpers = getting modules
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}filter_event_modules/${id}/`)
@@ -59,57 +60,27 @@ function SignUpForm() {
             });
     }, [id]);
 
-            //  ORIGINAL
-    // Actions and Helpers = getting modules_role
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}filter_event_module_roles/${id}/`)
-            .then((results) => {
-                return results.json();
-            })
-            .then((data) => {
-                setEventModuleRoleList(data);
-            });
-    }, [id]);
     
 
     
     return (
         <>
-            <h3>Input list of modules for mentor to select</h3>
-            {/* <form>
-            <div className="form-item">
-                <label htmlFor="mentor">Mentor:</label>
-                <input
-                    type="text"
-                    id="title"
-                    value={eventModuleRoleList.mentor}
-                    onChange={handleChange}
-                />
-            </div>
-
-            </form> */}
+            <h3>Please find below the available modules for this workshop</h3>
+            <h3>To sign up for one of the available roles, please click on the module that interests you</h3>       
             <div>
                 {eventModuleList.map((event_module, key) => 
                 {return (
+                <Link to={`/events/module/${event_module.id}`}>   
                 <h4 key={`event_module-${event_module.id}`} >
                     {event_module.module}: from {new Date(event_module.start_time).toDateString()} to {new Date(event_module.end_time).toDateString()}
                 </h4>
+                </Link> 
                 );
             })
             }
             </div>
-            {/* <div>
-                {eventModuleRoleList.map((event_module_role, key) => 
-                {return (
-                <h4 key={`event_module_role-${event_module_role.id}`} >
-                    {event_module_role.event_module_name} : {event_module_role.role}
-                </h4>
-                );
-            })
-            }
-            </div> */}
         </>
     )
 }
 
-export default SignUpForm;
+export default SignUpModuleForm;
