@@ -50,6 +50,7 @@ function LoginForm() {
   };
 
   return (
+    <div className="logincard">
     <div className="login-background">
     <form>
       <div className="login">
@@ -76,6 +77,7 @@ function LoginForm() {
 
       </div>
     </form>
+    </div>
     </div>
   );
 }
