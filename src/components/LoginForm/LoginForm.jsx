@@ -42,6 +42,7 @@ function LoginForm() {
         window.localStorage.setItem("token", data.token);
         window.localStorage.setItem("username", credentials.username);
         navigate("/");
+        
       } catch (err) {
         console.log(err);
       }
@@ -49,6 +50,7 @@ function LoginForm() {
   };
 
   return (
+    <div className="logincard">
     <div className="login-background">
     <form>
       <div className="login">
@@ -72,8 +74,10 @@ function LoginForm() {
         <button type="submit" onClick={handleSubmit}>
           Login
         </button>
+
       </div>
     </form>
+    </div>
     </div>
   );
 }

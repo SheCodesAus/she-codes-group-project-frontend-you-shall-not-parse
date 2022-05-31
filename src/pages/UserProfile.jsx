@@ -51,8 +51,10 @@ function UserProfile() {
         <Link to="/users/:id/edit">Edit profile</Link>
         <h4></h4>
         <img id="user-image" src={userData.image}/>
+        <div>
             <h1>User Profile of {userData.first_name} {userData.last_name} </h1>
-            <div>  
+        </div> 
+        <div>
             <h4> About </h4>
             <h3>{userData.bio}</h3>
 
