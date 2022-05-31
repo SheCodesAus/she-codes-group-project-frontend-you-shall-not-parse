@@ -26,7 +26,17 @@ function UserProfile() {
         });
     }, [id]);
 
-    
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/event_module_roles/<int:pk>/`)
+       
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            setUserData(data);
+        });
+    }, [id]);
+
 
     //Loading state
     if (!userData) {
@@ -61,7 +71,9 @@ function UserProfile() {
             <h4> Email address </h4>
             <h3>{userData.email}</h3>
 
-            <h1>Upcoming classes - spot to pull through classes they have coming</h1>
+            <h1>Upcoming classes</h1>
+            <h4>{userData.event_module}</h4>
+
             
         </div>
     </div>

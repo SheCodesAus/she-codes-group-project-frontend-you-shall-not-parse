@@ -31,6 +31,7 @@ function App() {
             <Route path="/events/:id" element={<EventPage/>} />
             <Route path="/events/id/signup" element={<SignUpPage/>} />
             <Route path="/users/:id/edit" element={<EditProfilePage/>} />
+        
           </Routes>
       </div>
     </Router>
