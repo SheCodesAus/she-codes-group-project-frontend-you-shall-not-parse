@@ -13,8 +13,10 @@ import CreateAccountPage from "./pages/CreateAccountPage";
 import UserProfile from "./pages/UserProfile";
 import EventPage from "./pages/EventPage";
 import SignUpPage from "./pages/WorkshopSignupPage";
+import EditProfilePage from "./pages/EditProfilePage";
 import AllEvents from "./pages/AllEventsPage";
 import Programs from "./pages/ProgramInfoPage";
+
 
 // styles
 import "./App.css";
@@ -44,6 +46,7 @@ function App() {
               <Route path="/events/:id" element={<EventPage/>} />
               <Route path="/events/id/signup" element={<SignUpPage/>} />
               <Route path="/ourprograms" element={<Programs/>}/>
+               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
             </Routes>
         </div>
       </div>

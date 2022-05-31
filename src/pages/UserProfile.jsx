@@ -26,7 +26,16 @@ function UserProfile() {
         });
     }, [id]);
 
-
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/event_module_roles/<int:pk>/`)
+       
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            setUserData(data);
+        });
+    }, [id]);
 
 
     //Loading state
@@ -38,6 +47,9 @@ function UserProfile() {
     return (
     <>
     <div>
+
+        <Link to="/users/:id/edit">Edit profile</Link>
+        <h4></h4>
         <img id="user-image" src={userData.image}/>
         <div>
             <h1>User Profile of {userData.first_name} {userData.last_name} </h1>
@@ -61,7 +73,9 @@ function UserProfile() {
             <h4> Email address </h4>
             <h3>{userData.email}</h3>
 
-            <h1>Upcoming classes - spot to pull through classes they have coming</h1>
+            <h1>Upcoming classes</h1>
+            <h4>{userData.event_module}</h4>
+
             
         </div>
     </div>
