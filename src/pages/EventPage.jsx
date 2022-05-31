@@ -5,8 +5,25 @@ import SignUpModuleForm from "../components/WorkshopSignup/ModuleSignUpForm";
 
 // import Nav from "../components/Nav/Nav.jsx"
 
-function EventPage() {
 
+function EventPage() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState();
+    const location = useLocation();
+
+    useEffect(()=> {
+        const localUsername = window.localStorage.getItem("username")
+        const token = window.localStorage.getItem("token");
+        if(token) {
+            setIsLoggedIn(true);
+            setUsername(localUsername);
+        }
+    }, [location])
+
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
     //State
     const [eventData, setEventData] = useState();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,6 +46,7 @@ function EventPage() {
                 setEventData(data);
             });
     }, []);
+
     
     
     useEffect(()=> {
@@ -39,6 +57,7 @@ function EventPage() {
             setUsername(localUsername);
         }
     }, [location])
+
 
     
     //Loading state
