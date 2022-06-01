@@ -40,11 +40,10 @@ function UserEditForm() {
     
     .then((data) => {
         setCredentials(data);
-      
         console.log("data",data);
     });
     
-  
+
     }, [id]);
 
     if (!credentials) {
@@ -64,7 +63,7 @@ function UserEditForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (credentials.email && credentials.firstName&& credentials.avatar) {
+        if (credentials.email && credentials.first_name) {
             try {
                 const response = await fetch(
                     `${process.env.REACT_APP_API_URL}users/${id}/edit`,
@@ -78,8 +77,7 @@ function UserEditForm() {
                     }
                 );
                 const data = await response.json();
-      
-                navigate("users/${id}/edit`");
+                navigate("/");
             } catch (err) {
                 console.log(err);
             }

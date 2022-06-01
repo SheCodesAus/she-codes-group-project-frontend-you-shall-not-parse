@@ -13,7 +13,7 @@ import CreateAccountPage from "./pages/CreateAccountPage";
 import UserProfile from "./pages/UserProfile";
 import EventPage from "./pages/EventPage";
 import EventModulePage from "./pages/EventModulePage";
-import SignUpPage from "./pages/WorkshopSignupPage";
+// import SignUpPage from "./pages/WorkshopSignupPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import AllEvents from "./pages/AllEventsPage";
 import Programs from "./pages/ProgramInfoPage";
@@ -44,10 +44,10 @@ function App() {
               <Route path="/createaccount" element={<CreateAccountPage />} />
               <Route path="/users/:username" element={<UserProfile/>} />
               <Route path="/events/:id" element={<EventPage/>} />
-              <Route path="/events/id/signup" element={<SignUpPage/>} />
+              {/* <Route path="/events/id/signup" element={<SignUpPage/>} /> */}
               <Route path="/ourprograms" element={<Programs/>}/>
-               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
-               <Route path="/events/module/:id" element={<EventModulePage/>} />
+              <Route path="/users/:id/edit" element={<EditProfilePage/>} />
+              <Route path="/events/module/:id" element={<EventModulePage/>} />
             </Routes>
         </div>
       </div>
