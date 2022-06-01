@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+//components
+import Nav from "./components/Nav/Nav"
+import Nav2 from "./components/Nav2/Nav2"
+
+
+//pages
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import CreateAccountPage from "./pages/CreateAccountPage";
+import UserProfile from "./pages/UserProfile";
+import EventPage from "./pages/EventPage";
+import EventModulePage from "./pages/EventModulePage";
+// import SignUpPage from "./pages/WorkshopSignupPage";
+import EditProfilePage from "./pages/EditProfilePage";
+import AllEvents from "./pages/AllEventsPage";
+import Programs from "./pages/ProgramInfoPage";
+
+
+
+// styles
+import "./App.css";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <div>
+          <Nav2>
+            <Routes>
+              <Route path="/events_all" element={<AllEvents/>}/>
+              <Route path="/ourprograms" element={<Programs/>}/>
+            </Routes>
+          </Nav2>
+        </div>
+        <div>
+          <Nav/>
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/createaccount" element={<CreateAccountPage />} />
+              <Route path="/users/:username" element={<UserProfile/>} />
+              <Route path="/events/:id" element={<EventPage/>} />
+              {/* <Route path="/events/id/signup" element={<SignUpPage/>} /> */}
+              <Route path="/ourprograms" element={<Programs/>}/>
+              <Route path="/users/:id/edit" element={<EditProfilePage/>} />
+              <Route path="/events/module/:id" element={<EventModulePage/>} />
+            </Routes>
+        </div>
+      </div>
+    </Router>
   );
+
 }
 
 export default App;
