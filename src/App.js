@@ -42,7 +42,9 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/" element={<HomePage />} />
               <Route path="/createaccount" element={<CreateAccountPage />} />
-              <Route path="/users/:username" element={<UserProfile/>} />
+              <Route path="/users/:id" element={<UserProfile/>} />
+              <Route path="/filter_event_module_roles_user/:username" element={<UserProfile/>} />
+//               <Route path="/users/:username" element={<UserProfile/>} />
               <Route path="/events/:id" element={<EventPage/>} />
               {/* <Route path="/events/id/signup" element={<SignUpPage/>} /> */}
               <Route path="/ourprograms" element={<Programs/>}/>
