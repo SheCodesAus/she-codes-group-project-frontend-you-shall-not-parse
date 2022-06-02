@@ -9,10 +9,15 @@ function UserProfile() {
 
     //State
     const [userData, setUserData] = useState();
+    const [roleData, setRoleData] = useState();
 
 
     //Hooks
-    const { username } = useParams();  
+
+
+    const { id } = useParams();  
+
+
 
 
     //Actions and Helpers
@@ -22,20 +27,19 @@ function UserProfile() {
             return results.json();
         })
         .then((data) => {
+            console.log(data);
             setUserData(data);
         });
-    }, [username]);
+        fetch(`${process.env.REACT_APP_API_URL}filter_event_module_roles_user/${id}`)
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            console.log(data);
+            setRoleData(data);
+        });
+    }, [id]);
 
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_URL}/event_module_roles/<int:pk>/`)
-    
-    //     .then((results) => {
-    //         return results.json();
-    //     })
-    //     .then((data) => {
-    //         setUserData(data);
-    //     });
-    // }, [id]);
 
 
     //Loading state
@@ -72,9 +76,19 @@ function UserProfile() {
 
             <h4> Email address </h4>
             <h3>{userData.email}</h3>
+            
+                        <div>
+                        {roleData.map((role, key) => 
+                        {return (
+                        <h4 key={`role-${role.id}`} >
+                            {role.event}
 
-            <h1>Upcoming classes</h1>
-            <h4>{userData.event_module}</h4>
+                        </h4>
+                        );
+                    })
+                    }
+                    </div>
+           
 
             
         </div>
