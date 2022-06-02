@@ -19,11 +19,10 @@ import AllEvents from "./pages/AllEventsPage";
 import Programs from "./pages/ProgramInfoPage";
 
 
+
 // styles
 import "./App.css";
 
-// form
-import SignUpForm from "./components/WorkshopSignup/SignUpForm";
 
 function App() {
   return (
@@ -45,10 +44,12 @@ function App() {
               <Route path="/createaccount" element={<CreateAccountPage />} />
               <Route path="/users/:id" element={<UserProfile/>} />
               <Route path="/filter_event_module_roles_user/:username" element={<UserProfile/>} />
+//               <Route path="/users/:username" element={<UserProfile/>} />
               <Route path="/events/:id" element={<EventPage/>} />
               {/* <Route path="/events/id/signup" element={<SignUpPage/>} /> */}
               <Route path="/ourprograms" element={<Programs/>}/>
-               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
+              <Route path="/users/:id/edit" element={<EditProfilePage/>} />
+              <Route path="/events/module/:id" element={<EventModulePage/>} />
             </Routes>
         </div>
       </div>

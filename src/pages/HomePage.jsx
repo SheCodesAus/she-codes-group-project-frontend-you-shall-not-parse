@@ -7,8 +7,6 @@ import { Link } from "react-router-dom";
 
 //components
 import EventCard from "../components/EventCard/EventCard";
-// import AssociationCard from "../components/AssociationCard/AssociationCard";
-// import HeaderImage from "../components/HeaderImage/HeaderImage";
 
 function HomePage() {
 
@@ -17,7 +15,7 @@ function HomePage() {
 
     //Action and Helpers
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}events`)
+        fetch(`${process.env.REACT_APP_API_URL}events/`)
         .then((results) => {
             return results.json();
         })
