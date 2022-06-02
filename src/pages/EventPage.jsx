@@ -26,9 +26,9 @@ function EventPage() {
     }
     //State
     const [eventData, setEventData] = useState();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [username, setUsername] = useState();
-    const location = useLocation();
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [username, setUsername] = useState();
+    // const location = useLocation();
 
 
     //Hooks
