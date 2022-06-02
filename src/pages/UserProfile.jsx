@@ -26,16 +26,7 @@ function UserProfile() {
         });
     }, [username]);
 
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_URL}/event_module_roles/<int:pk>/`)
-    
-    //     .then((results) => {
-    //         return results.json();
-    //     })
-    //     .then((data) => {
-    //         setUserData(data);
-    //     });
-    // }, [id]);
+
 
 
     //Loading state
