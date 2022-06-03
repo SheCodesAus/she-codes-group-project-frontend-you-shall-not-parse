@@ -50,7 +50,7 @@ function UserProfile() {
     <>
     <div>
 
-        <Link to="/users/:id/edit">Edit profile</Link>
+        
         <h4></h4>
         <img id="user-image" src={userData.image}/>
         <div>
@@ -75,19 +75,21 @@ function UserProfile() {
             <h4> Email address </h4>
             <h3>{userData.email}</h3>
             
-                        <div>
+            <h1> Upcoming Classes </h1>
+            
+            <div>
                         {roleData.map((role, key) => 
                         {return (
                         <h4 key={`role-${role.id}`} >
-                            {role.event}
+                            <h3> Course: {role.event} - Code: {role.event_module_name} - Role:{role.role}</h3>
 
                         </h4>
                         );
                     })
                     }
-                    </div>
+            </div>
            
-
+            <Link className="eventlink" to="/users/:id/edit">Edit profile</Link>
             
         </div>
     </div>

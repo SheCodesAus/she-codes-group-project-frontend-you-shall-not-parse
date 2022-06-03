@@ -80,3 +80,8 @@ h4 {
     height: 50%;
 }
 
+.eventlink {
+    display: flex;
+    justify-content: right;
+    font-size: xx-small;
+}
