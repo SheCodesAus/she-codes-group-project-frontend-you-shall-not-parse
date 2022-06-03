@@ -63,7 +63,9 @@ function UserEditForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (credentials.email && credentials.first_name) {
+
+        if (credentials.first_name && credentials.last_name& credentials.email) {
+
             try {
                 const response = await fetch(
                     `${process.env.REACT_APP_API_URL}users/${id}/edit`,

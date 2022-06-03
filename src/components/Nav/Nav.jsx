@@ -6,17 +6,19 @@ import logo from "./SheCodesLogo.jpg"
 function Nav() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState();
+    const [userId, setUserId] = useState();
     const location = useLocation();
-
 
 
 
     useEffect(()=> {
         const localUsername = window.localStorage.getItem("username")
         const token = window.localStorage.getItem("token");
+        const userid = window.localStorage.getItem("id");
         if(token) {
             setIsLoggedIn(true);
             setUsername(localUsername);
+            setUserId(userid);
         }
     }, [location])
 
@@ -40,7 +42,10 @@ function Nav() {
                 isLoggedIn ? (
                     <>
                     <button className="logoutbutton" onClick={handleLogout}>Logout</button>
-                    <Link to={`/users/${username}`}>{username}</Link>
+
+                    <Link to={`/users/${userId}`}>{username}</Link>
+
+
                     </>
                     )
                 :
