@@ -14,6 +14,10 @@ function SignUpRoleForm({eventModuleData}) {
         "mentor": localUsername,
 	    "gift_back": false,
     });
+    const [selectedRole, setSelectedRole] = useState({
+        id: null,
+        name: "",
+    })
 
     //Hooks
     const { id } = useParams();
@@ -26,36 +30,46 @@ function SignUpRoleForm({eventModuleData}) {
             [id]: value,
         }));
     };
+
+    const handleSelect = (event) => {
+        const {value, selectedIndex} = event.target;
+        const roleName = event.nativeEvent.target[selectedIndex].text
+        setSelectedRole({
+            id:value,
+            name:roleName,
+        });
+    }
     
     const navigate = useNavigate();
 
     const handleSubmit = async(event) => {
         event.preventDefault();
+        console.log(eventModuleRoleList)
         const token = window.localStorage.getItem("token");
         if (!token)return;
-            try {
-                const response = await fetch
-                (`${process.env.REACT_APP_API_URL}event_module_roles/${eventModuleRoleList.id}`, {
-                method:"put",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Token ${token}`,
-                },
-                body: JSON.stringify({ 
-                    id: eventModuleRoleList.id,
-                    event: eventModuleRoleList.event,
-                    event_module_name: eventModuleRoleList.event_module_name,
-                    role: eventModuleRoleList.role,
-                    mentor: eventModuleRoleList.mentor,
-                    gift_back: eventModuleRoleList.gift_back,
-                }),
-            });
-            const data = await response.json()
-            console.log(data);
+        try {
+            const response = await fetch
+            (`${process.env.REACT_APP_API_URL}filter_event_module_roles/${eventModuleRoleList.id}/${selectedRole.id}`, {
+            method:"put",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Token ${token}`,
+            },
+            body: JSON.stringify({ 
+                id: eventModuleRoleList.id,
+                event: eventModuleRoleList.event,
+                event_module_name: eventModuleRoleList.event_module_name,
+                role: selectedRole.name,
+                mentor: eventModuleRoleList.mentor,
+                gift_back: eventModuleRoleList.gift_back,
+            }),
+        });
+        const data = await response.json()
+        console.log(data);
 
-            navigate(`/`);               
-        }catch(err) {
-            console.log(err);
+        navigate(`/`);               
+    }catch(err) {
+        console.log(err);
     }
 }
 
@@ -72,7 +86,7 @@ function SignUpRoleForm({eventModuleData}) {
         <div className="sign-up">
         <h2>Please select the role that you would like to sign up for:</h2>    
                 <label htmlFor="roles">Roles:</label>
-                <select name="roles" id="roles" defaultValue={eventModuleRoleList.id} onChange={handleChange}>
+                <select name="roles" id="roles" defaultValue={eventModuleRoleList.id} onChange={handleSelect}>
                     {eventModuleData.map((eventmodule, key) =>  {
                         return(
                         <option key={`${key}-${eventmodule.id}`} value={eventmodule.id}>{eventmodule.role}</option>
