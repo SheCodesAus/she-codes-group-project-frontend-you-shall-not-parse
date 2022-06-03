@@ -9,7 +9,8 @@ function UserProfile() {
 
     //State
     const [userData, setUserData] = useState();
-    const [roleData, setRoleData] = useState();
+    const [roleData, setRoleData] = useState([]);
+    
 
 
     //Hooks
@@ -35,6 +36,8 @@ function UserProfile() {
         .then((data) => {
             console.log("role", data);
             setRoleData(data);
+            console.log("role data:", roleData)
+            
         });
     }, [id]);
 
@@ -49,9 +52,6 @@ function UserProfile() {
     return (
     <>
     <div>
-
-        
-        <h4></h4>
         <img id="user-image" src={userData.image}/>
         <div>
             <h1>User Profile of {userData.first_name} {userData.last_name} </h1>
@@ -80,17 +80,14 @@ function UserProfile() {
             <h1> Upcoming Classes </h1>
             
             <div>
-                        {roleData.map((role, key) => 
-                        {return (
-                        <h4 key={`role-${role.id}`} >
-                            <h3> Course: {role.event} -  Code: {role.event_module_name} -  Role:{role.role}</h3>
-
-                        </h4>
-                        );
-                    })
-                    }
-            </div>
-           
+                {roleData.map((role, key) => 
+                (
+                <h4 key={`role-${role.id}`} >
+                    <h3> Course: {role.event} -  Code: {role.event_module_name} -  Role:{role.role}</h3>
+                </h4>
+                )
+                )}
+            </div>          
             <Link className="editlink" to="/users/:id/edit">Edit profile</Link>
         </div>
     </div>
