@@ -13,6 +13,8 @@ function EventCard({eventData}) {
             <img src={eventData.image} alt="project image"/>
         </Link>
         <h3>{eventData.name}</h3>    
+        <h4>Sign up opens: {eventData.signup_opens}</h4>
+        <h4>Sign up closes: {eventData.signup_closes}</h4>
     </div>
     );
 }
