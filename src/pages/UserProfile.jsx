@@ -18,6 +18,8 @@ function UserProfile() {
     const { id } = useParams();  
 
 
+
+
     //Actions and Helpers
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
@@ -33,7 +35,7 @@ function UserProfile() {
             return results.json();
         })
         .then((data) => {
-            console.log("role", data);
+            console.log(data);
             setRoleData(data);
         });
     }, [id]);
@@ -45,8 +47,8 @@ function UserProfile() {
         return <h3>Loading profile...</h3>;
     }
 
-    //Normal State
-    return (
+ //Normal State
+ return (
     <>
     <div>
 
