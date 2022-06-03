@@ -1,0 +1,52 @@
+.border {
+    border: solid;
+    border-width: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.header {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.colour {
+    padding: 20px;
+    background-color: orange;
+}
+
+.abn {
+    display: flex;
+    justify-content: right;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.amount {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.bank {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+}
+
+.thankyou {
+    display: flex;
+    justify-content: center;
+}
+
+
+

@@ -16,6 +16,8 @@ import EventModulePage from "./pages/EventModulePage";
 import EditProfilePage from "./pages/EditProfilePage";
 import AllEvents from "./pages/AllEventsPage";
 import Programs from "./pages/ProgramInfoPage";
+// Jordan changes to see invoice page
+import InvoicePage from "./pages/InvoicePage";
 
 
 
@@ -50,6 +52,8 @@ function App() {
               <Route path="/events/module/:id" element={<EventModulePage/>} />
               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
               <Route path="/events/module/:id" element={<EventModulePage/>} />
+              {/* Jordan edit to see invoice page */}
+              <Route path="/users/:id/invoice" element={<InvoicePage/>} />
             </Routes>
         </div>
       </div>
