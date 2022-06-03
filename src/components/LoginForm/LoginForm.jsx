@@ -42,7 +42,7 @@ function LoginForm() {
         console.log("id", data.id);
         window.localStorage.setItem("token", data.token);
         window.localStorage.setItem("username", credentials.username);
-        window.localStorage.setItem("id", credentials.id);
+        window.localStorage.setItem("id", data.id);
         navigate("/");
         
       } catch (err) {
@@ -57,7 +57,7 @@ function LoginForm() {
     <form>
       <div className="login">
         <h1 className="glowup">Login</h1>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">USERNAME</label>
         <input
           type="text"
           id="username"
@@ -66,7 +66,7 @@ function LoginForm() {
         />
       </div>
       <div className="login">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">PASSWORD</label>
         <input
           type="password"
           id="password"

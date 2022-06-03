@@ -34,31 +34,25 @@ function Nav() {
     return (
         <div className="header">
         <Link to="/"><img className="imag-nav" src={logo} alt="SheCodeslogo" /></Link>
-
         <nav className="nav">
             <Link to="/">Home</Link>
-
             {
                 isLoggedIn ? (
                     <>
-                    <button className="logoutbutton" onClick={handleLogout}>Logout</button>
-
+                    <Link className="logoutbutton" to="/" onClick={handleLogout}>Logout</Link>
                     <Link to={`/users/${userId}`}>{username}</Link>
-
-
                     </>
                     )
                 :
                 (
                     <>
                     <Link to="/login">Login</Link>
-                    <Link to="/createAccount">Become a mentor</Link>           
+                    <Link to="/createAccount">Mentor</Link>           
                     </>
                 )
             }
         </nav>
         </div>
-
     )
 }
 
