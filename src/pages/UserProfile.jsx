@@ -91,7 +91,7 @@ function UserProfile() {
                     }
             </div>
            
-            <Link className="eventlink" to="/users/:id/edit">Edit profile</Link>
+            <Link className="editlink" to="/users/:id/edit">Edit profile</Link>
             
         </div>
     </div>
