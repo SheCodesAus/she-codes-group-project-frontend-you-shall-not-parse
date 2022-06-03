@@ -3,7 +3,6 @@ import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import "./../App.css"
 import SignUpModuleForm from "../components/WorkshopSignup/ModuleSignUpForm";
 
-// import Nav from "../components/Nav/Nav.jsx"
 
 
 function EventPage() {
@@ -26,9 +25,6 @@ function EventPage() {
     }
     //State
     const [eventData, setEventData] = useState();
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
-    // const [username, setUsername] = useState();
-    // const location = useLocation();
 
 
     //Hooks

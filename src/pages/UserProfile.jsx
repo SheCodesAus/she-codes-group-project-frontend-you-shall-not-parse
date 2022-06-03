@@ -18,11 +18,9 @@ function UserProfile() {
     const { id } = useParams();  
 
 
-
-
     //Actions and Helpers
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${username}`)
+        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
         .then((results) => {
             return results.json();
         })
@@ -35,7 +33,7 @@ function UserProfile() {
             return results.json();
         })
         .then((data) => {
-            console.log(data);
+            console.log("role", data);
             setRoleData(data);
         });
     }, [id]);
@@ -77,20 +75,19 @@ function UserProfile() {
             <h4> Email address </h4>
             <h3>{userData.email}</h3>
             
-                        <div>
-                        {roleData.map((role, key) => 
-                        {return (
-                        <h4 key={`role-${role.id}`} >
-                            {role.event}
-
-                        </h4>
+            <div>
+            <h2>My Timetable</h2>
+                <div>
+                {roleData.map((role, key) => 
+                {return (
+                <h4 key={`role-${role.id}`} >
+                    {role.event} : {role.event_module_name} : {role.role}
+                </h4>
                         );
                     })
                     }
-                    </div>
-           
-
-            
+                </div>
+            </div>
         </div>
     </div>
     </>
