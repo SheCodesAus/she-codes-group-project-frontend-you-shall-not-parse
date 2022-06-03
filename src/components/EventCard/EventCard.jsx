@@ -12,9 +12,9 @@ function EventCard({eventData}) {
         <Link to={`/events/${eventData.id}`}>
             <img src={eventData.image} alt="project image"/>
         </Link>
-        <h3>{eventData.name}</h3>    
-        <h4>Sign up opens: {eventData.signup_opens}</h4>
-        <h4>Sign up closes: {eventData.signup_closes}</h4>
+        <h2>{eventData.name}</h2>
+        <h3>{eventData.location}</h3>
+        <h5>Sign up closes: {new Date(eventData.signup_closes).toDateString()}</h5>
     </div>
     );
 }
