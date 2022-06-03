@@ -83,7 +83,7 @@ function UserProfile() {
                     (
                     <h4 className="user_role" key={`role-${role.id}`} >
                         <h3> Course: {role.event} | {role.event_module_name} as <strong>{role.role}</strong></h3>
-                        <button>Generate invoice</button>
+                        <Link to={`/users/${id}/invoice`}><button>Generate invoice</button></Link>
                     </h4>
                     )
                     )}
