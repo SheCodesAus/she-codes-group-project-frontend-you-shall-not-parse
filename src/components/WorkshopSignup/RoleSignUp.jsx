@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
 
+import "./WorkshopSignup.css"
+
+
 
 function SignUpRoleForm({eventModuleData}) {
     console.log(eventModuleData)
@@ -11,6 +14,10 @@ function SignUpRoleForm({eventModuleData}) {
         "mentor": localUsername,
 	    "gift_back": false,
     });
+    const [selectedRole, setSelectedRole] = useState({
+        id: null,
+        name: "",
+    })
 
     //Hooks
     const { id } = useParams();
@@ -23,36 +30,47 @@ function SignUpRoleForm({eventModuleData}) {
             [id]: value,
         }));
     };
+
+    const handleSelect = (event) => {
+        const {value, selectedIndex} = event.target;
+        const roleName = event.nativeEvent.target[selectedIndex].text
+        setSelectedRole({
+            id:value,
+            name:roleName,
+        });
+    }
+
+
     
     const navigate = useNavigate();
 
     const handleSubmit = async(event) => {
         event.preventDefault();
+        console.log(eventModuleRoleList)
         const token = window.localStorage.getItem("token");
         if (!token)return;
-            try {
-                const response = await fetch
-                (`${process.env.REACT_APP_API_URL}event_module_roles/${eventModuleRoleList.id}`, {
-                method:"put",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Token ${token}`,
-                },
-                body: JSON.stringify({ 
-                    id: eventModuleRoleList.id,
-                    event: eventModuleRoleList.event,
-                    event_module_name: eventModuleRoleList.event_module_name,
-                    role: eventModuleRoleList.role,
-                    mentor: eventModuleRoleList.mentor,
-                    gift_back: eventModuleRoleList.gift_back,
-                }),
-            });
-            const data = await response.json()
-            console.log(data);
-
-            navigate(`/`);               
-        }catch(err) {
-            console.log(err);
+        try {
+            const response = await fetch
+            (`${process.env.REACT_APP_API_URL}filter_event_module_roles/${eventModuleRoleList.id}/${selectedRole.id}`, {
+            method:"put",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Token ${token}`,
+            },
+            body: JSON.stringify({ 
+                id: eventModuleRoleList.id,
+                event: eventModuleRoleList.event,
+                event_module_name: eventModuleRoleList.event_module_name,
+                role: selectedRole.name,
+                mentor: eventModuleRoleList.mentor,
+                gift_back: eventModuleRoleList.gift_back,
+            }),
+        });
+        const data = await response.json()
+        console.log(data);
+        navigate(`/`);               
+    }catch(err) {
+        console.log(err);
     }
 }
 
@@ -66,10 +84,10 @@ function SignUpRoleForm({eventModuleData}) {
     //Normal State
     return (
         <form>
-        <div className="form-item">
+        <div className="sign-up">
         <h2>Please select the role that you would like to sign up for:</h2>    
                 <label htmlFor="roles">Roles:</label>
-                <select name="roles" id="roles" defaultValue={eventModuleRoleList.id} onChange={handleChange}>
+                <select name="roles" id="roles" defaultValue={eventModuleRoleList.id} onChange={handleSelect}>
                     {eventModuleData.map((eventmodule, key) =>  {
                         return(
                         <option key={`${key}-${eventmodule.id}`} value={eventmodule.id}>{eventmodule.role}</option>
@@ -77,7 +95,7 @@ function SignUpRoleForm({eventModuleData}) {
                     })}
                 </select>
             </div>
-            <div className="form-item">
+            <div className="sign-up">
                 <label htmlFor="gift_back">Give Back Program:</label>
                 <input
                     type="checkbox"
@@ -86,10 +104,10 @@ function SignUpRoleForm({eventModuleData}) {
                     onChange={handleChange}
                 />
             </div>
-            <div className="form-item">
-            <button type="submit" onClick={handleSubmit}>
+            <div className="sign-up">
+            <Link to="/"><button type="button">
                     Sign up for this role
-            </button>
+            </button></Link>
             </div>
 
         </form>

@@ -7,6 +7,10 @@
     margin: 80px;   
 }
 
+.current_events{
+    margin: 200px 0 200px 0;
+}
+
 .event-card{
     text-align: center;
 }
