@@ -52,28 +52,29 @@ function EventPage() {
     
     <div>
         <div className="event-content">
-            <img className="image" src={eventData.image} alt="project image"/>
-            <h3 className="title">{eventData.name}</h3>
-            <h3 className="desc">{eventData.description}</h3>
-            <h3 className="location">Location: {eventData.location}</h3>
-            <h3 className="finaldate">Sign up closes on {new Date(eventData.signup_closes).toDateString()}</h3>
+            <div className="info">
+              <h3 className="title">{eventData.name}</h3>
+              <h3 className="location">{eventData.location}</h3>
+              <h3 className="desc">{eventData.description}</h3>
+              <h3 className="finaldate">Sign up closes on {new Date(eventData.signup_closes).toDateString()}</h3>
             
-            {
-                isLoggedIn ? (
-                    <>
-                    <Link className="signup" to="/events/id/signup"><button>Sign Up Now!</button></Link>
-                    </>
-                )
-                :
-                (
-                    <>
-                    <Link className="signup" to="/login"><button>Login to Sign up.</button></Link>
-                    <h3 className="signup">Dont have an account?</h3>
-                    <Link className="signup" to="/createaccount"><button>Create Account</button></Link>
-                    </>
-                )
-            } 
-
+              {
+                  isLoggedIn ? (
+                      <>
+                      <Link className="signup" to="/events/id/signup"><button>Sign Up Now!</button></Link>
+                      </>
+                  )
+                  :
+                  (
+                      <>
+                      <Link className="signup" to="/login"><button>Login to Sign up.</button></Link>
+                      <h3 className="signup">Dont have an account?</h3>
+                      <Link className="signup" to="/createaccount"><button>Create Account</button></Link>
+                      </>
+                  )
+              } 
+          </div>
+          <img className="image" src={eventData.image} alt="project image"/>
         </div>
     </div>
     
