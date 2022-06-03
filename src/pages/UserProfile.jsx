@@ -83,7 +83,7 @@ function UserProfile() {
                         {roleData.map((role, key) => 
                         {return (
                         <h4 key={`role-${role.id}`} >
-                            <h3> Course: {role.event} - Code: {role.event_module_name} - Role:{role.role}</h3>
+                            <h3> Course: {role.event} -  Code: {role.event_module_name} -  Role:{role.role}</h3>
 
                         </h4>
                         );
