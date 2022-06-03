@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
 
+import "./WorkshopSignup.css"
+
+
 
 function SignUpRoleForm({eventModuleData}) {
     console.log(eventModuleData)
@@ -66,7 +69,7 @@ function SignUpRoleForm({eventModuleData}) {
     //Normal State
     return (
         <form>
-        <div className="form-item">
+        <div className="sign-up">
         <h2>Please select the role that you would like to sign up for:</h2>    
                 <label htmlFor="roles">Roles:</label>
                 <select name="roles" id="roles" defaultValue={eventModuleRoleList.id} onChange={handleChange}>
@@ -77,7 +80,7 @@ function SignUpRoleForm({eventModuleData}) {
                     })}
                 </select>
             </div>
-            <div className="form-item">
+            <div className="sign-up">
                 <label htmlFor="gift_back">Give Back Program:</label>
                 <input
                     type="checkbox"
@@ -86,7 +89,7 @@ function SignUpRoleForm({eventModuleData}) {
                     onChange={handleChange}
                 />
             </div>
-            <div className="form-item">
+            <div className="sign-up">
             <button type="submit" onClick={handleSubmit}>
                     Sign up for this role
             </button>
