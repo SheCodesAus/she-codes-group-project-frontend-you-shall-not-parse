@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 
 //components
+import HeaderImage from "../components/HeaderImage/Header";
 import EventCard from "../components/EventCard/EventCard";
 
 function HomePage() {
@@ -28,7 +29,9 @@ function HomePage() {
     
     return (
     <div>
-        <div>
+        <HeaderImage/>
+
+        <div className="current_events">
             <h1> CURRENT EVENTS</h1>
             <div id="event-list">
                 {eventList.map((eventData) => {

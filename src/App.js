@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 //components
 import Nav from "./components/Nav/Nav"
 import Nav2 from "./components/Nav2/Nav2"
+import HeaderImage from "./components/HeaderImage/Header";
+import Footer from "./components/Footer/Footer";
 
 
 //pages
@@ -43,7 +45,6 @@ function App() {
               <Route path="/createaccount" element={<CreateAccountPage />} />
               <Route path="/users/:id" element={<UserProfile/>} />
               <Route path="/filter_event_module_roles_user/:username" element={<UserProfile/>} />
-{/* //               <Route path="/users/:username" element={<UserProfile/>} /> */}
               <Route path="/events/:id" element={<EventPage/>} />
               <Route path="/ourprograms" element={<Programs/>}/>
               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
@@ -53,6 +54,7 @@ function App() {
             </Routes>
         </div>
       </div>
+      <Footer/>
     </Router>
   );
 

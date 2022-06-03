@@ -26,6 +26,7 @@
     font-size: 20px;
     color: #ffff;
     font-weight: bold;
+    text-transform: uppercase;
     
 }
 
@@ -37,7 +38,7 @@
     font-weight: normal;
     transition-delay: .3s; */
     font-size: 20px;
-    color: #cecccc;
+    color: #FFA300;
     font-weight: bold;
     /* transition-delay: .4s; */
     text-decoration: underline;

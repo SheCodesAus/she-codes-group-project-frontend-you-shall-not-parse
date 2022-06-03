@@ -39,6 +39,8 @@ function SignUpRoleForm({eventModuleData}) {
             name:roleName,
         });
     }
+
+
     
     const navigate = useNavigate();
 
@@ -66,7 +68,6 @@ function SignUpRoleForm({eventModuleData}) {
         });
         const data = await response.json()
         console.log(data);
-
         navigate(`/`);               
     }catch(err) {
         console.log(err);
@@ -104,9 +105,9 @@ function SignUpRoleForm({eventModuleData}) {
                 />
             </div>
             <div className="sign-up">
-            <button type="submit" onClick={handleSubmit}>
+            <Link to="/"><button type="button">
                     Sign up for this role
-            </button>
+            </button></Link>
             </div>
 
         </form>
