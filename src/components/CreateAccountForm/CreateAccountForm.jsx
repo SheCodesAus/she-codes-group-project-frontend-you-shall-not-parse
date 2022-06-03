@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import "./CreateAccountForm.css"
 
 
@@ -153,11 +154,11 @@ return (
 
   <div className="login-background">
     <form>
-    <div className="login">
-    <h1 className="glowup">Create Account</h1>
+    <div className="new-account">
+    <h1 className="glowup">Join our Mentors</h1>
       {formFields.map((field, key) => {
         return (
-          <div key={`${key}-${field.id}`}>
+          <div className= "create-account" key={`${key}-${field.id}`}>
             <label htmlFor={field.id}>{field.label}</label>
             <input type={field.type} id={field.id} placeholder={field.placeholder} onChange={handleChange}/>
           </div>
