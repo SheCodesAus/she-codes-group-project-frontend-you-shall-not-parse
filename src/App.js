@@ -48,6 +48,8 @@ function App() {
               <Route path="/events/:id" element={<EventPage/>} />
               {/* <Route path="/events/id/signup" element={<SignUpPage/>} /> */}
               <Route path="/ourprograms" element={<Programs/>}/>
+               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
+               <Route path="/events/module/:id" element={<EventModulePage/>} />
               <Route path="/users/:id/edit" element={<EditProfilePage/>} />
               <Route path="/events/module/:id" element={<EventModulePage/>} />
             </Routes>
