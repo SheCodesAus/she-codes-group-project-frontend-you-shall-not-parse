@@ -18,11 +18,9 @@ function UserProfile() {
     const { id } = useParams();  
 
 
-
-
     //Actions and Helpers
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${username}`)
+        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
         .then((results) => {
             return results.json();
         })
@@ -35,7 +33,7 @@ function UserProfile() {
             return results.json();
         })
         .then((data) => {
-            console.log(data);
+            console.log("role", data);
             setRoleData(data);
         });
     }, [id]);
@@ -77,6 +75,8 @@ function UserProfile() {
             <h4> Email address </h4>
             <h3>{userData.email}</h3>
             
+
+
             <h1> Upcoming Classes </h1>
             
             <div>
@@ -92,7 +92,6 @@ function UserProfile() {
             </div>
            
             <Link className="editlink" to="/users/:id/edit">Edit profile</Link>
-            
         </div>
     </div>
     </>
