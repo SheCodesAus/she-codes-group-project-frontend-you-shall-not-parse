@@ -14,13 +14,15 @@ function UserProfile() {
 
     //Hooks
 
+
     const { id } = useParams();  
+
 
 
 
     //Actions and Helpers
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}users/${username}`)
         .then((results) => {
             return results.json();
         })
@@ -28,7 +30,6 @@ function UserProfile() {
             console.log(data);
             setUserData(data);
         });
-
         fetch(`${process.env.REACT_APP_API_URL}filter_event_module_roles_user/${id}`)
         .then((results) => {
             return results.json();
@@ -38,6 +39,7 @@ function UserProfile() {
             setRoleData(data);
         });
     }, [id]);
+
 
 
     //Loading state

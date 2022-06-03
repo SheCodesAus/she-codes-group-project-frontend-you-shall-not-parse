@@ -40,11 +40,10 @@ function UserEditForm() {
     
     .then((data) => {
         setCredentials(data);
-      
         console.log("data",data);
     });
     
-  
+
     }, [id]);
 
     if (!credentials) {
@@ -64,7 +63,9 @@ function UserEditForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         if (credentials.first_name && credentials.last_name& credentials.email) {
+
             try {
                 const response = await fetch(
                     `${process.env.REACT_APP_API_URL}users/${id}/edit`,
@@ -78,8 +79,7 @@ function UserEditForm() {
                     }
                 );
                 const data = await response.json();
-      
-                navigate("users/${id}/edit`");
+                navigate("/");
             } catch (err) {
                 console.log(err);
             }
