@@ -12,21 +12,30 @@ function UserProfile() {
 
 
     //Hooks
-    const { id } = useParams();  
+    const { username } = useParams();  
 
 
     //Actions and Helpers
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+        fetch(`${process.env.REACT_APP_API_URL}users/${username}`)
         .then((results) => {
             return results.json();
         })
         .then((data) => {
             setUserData(data);
         });
-    }, [id]);
+    }, [username]);
 
-
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_API_URL}/event_module_roles/<int:pk>/`)
+    
+    //     .then((results) => {
+    //         return results.json();
+    //     })
+    //     .then((data) => {
+    //         setUserData(data);
+    //     });
+    // }, [id]);
 
 
     //Loading state
@@ -38,9 +47,36 @@ function UserProfile() {
     return (
     <>
     <div>
-        <img src={userData.image}/>
+
+        <Link to="/users/:id/edit">Edit profile</Link>
+        <h4></h4>
+        <img id="user-image" src={userData.image}/>
         <div>
-            <h2>{userData.username}</h2>
+            <h1>User Profile of {userData.first_name} {userData.last_name} </h1>
+        </div> 
+        <div>
+            <h4> About </h4>
+            <h3>{userData.bio}</h3>
+
+            <h4> Coding Languages </h4>
+            <h3>{userData.languages}</h3>
+
+            <h4> Location </h4>
+            <h3>{userData.location}</h3>
+
+            <h4> Current Position </h4>
+            <h3>{userData.current_position}</h3>
+
+            <h4> Username </h4>
+            <h3>{userData.username}</h3>
+
+            <h4> Email address </h4>
+            <h3>{userData.email}</h3>
+
+            <h1>Upcoming classes</h1>
+            <h4>{userData.event_module}</h4>
+
+            
         </div>
     </div>
     </>
